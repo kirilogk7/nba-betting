@@ -72,7 +72,7 @@ def load_historical(seasons: list[str]):
 
             home_row = next((r for r in rows if "vs." in r["MATCHUP"]), None)
             away_row = next((r for r in rows if "@ " in r["MATCHUP"]), None)
-            if not home_row or not away_row:
+            if home_row is None or away_row is None:
                 continue
 
             home_pts = home_row["PTS"]
